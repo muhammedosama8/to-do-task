@@ -158,3 +158,7 @@ function endTask(id){
             });
 }
 
+/* --------  Log Out ----------*/
+function logout(){
+  window.location.href = '../index.html';
+}
