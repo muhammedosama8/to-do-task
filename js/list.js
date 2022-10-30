@@ -113,5 +113,12 @@ form.submit.addEventListener('click', (e)=> {
     form.task.setAttribute('value',' ');
 })
 
+/* -------- Edit Task ----------*/
+function edit(id){
+    form.task.setAttribute('value',' ');
+    taskedit = tasks.filter(res=> res.id == id);
+    form.task.setAttribute('value', taskedit[0].title);
+    isEdit = true;
+}
 
 
