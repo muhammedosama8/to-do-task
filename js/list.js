@@ -65,3 +65,53 @@ function hideloader() {
     document.getElementById('loading').style.display = 'none';
 } 
 
+/* -------- Add Task ----------*/
+form.submit.addEventListener('click', (e)=> {
+    e.preventDefault();
+    if(isEdit){
+        console.log(taskedit);
+        fetch(`https://jsonplaceholder.typicode.com/todos/${taskedit[0].id}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                id: taskedit[0].id,
+                title: form.task.value,
+                completed: false
+            }),
+            headers: {
+                Accept: "application/json",
+              'Content-type': 'application/json',
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+                isEdit = false;
+                document.getElementById(`${data.id}`).textContent = data.title;
+            });
+    } else{
+        fetch(url, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              title: form.task.value,
+              completed:false
+            }),
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            tasks.push(data)
+            console.log(tasks);
+            setTaskDiv(Array.of(data))
+          })
+          .catch((err) => {
+            console.log('error');
+            console.log(err);
+          });
+    }
+    form.task.setAttribute('value',' ');
+})
+
+
+
