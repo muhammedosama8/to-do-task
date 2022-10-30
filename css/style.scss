@@ -1,0 +1,34 @@
+.login{
+    margin: 9rem auto 0;
+    .form{
+        background-color: #dedede59;
+        border-radius: 16px;
+        padding: 3rem 2rem;
+        .bi-person-circle{
+            font-size: 7rem;
+            color: var(--bs-blue);
+        }
+        .input{
+            position: relative;
+            .bi{
+                position: absolute;
+                left: 12px;
+                top: 50%;
+                transform: translate(-5px, -50%);
+            }
+            input{
+                padding-left: 28px;
+            }
+        }
+        .submit{
+            background-color: var(--bs-blue);
+            color: #fff;
+            text-transform: capitalize;
+            padding: 8px 32px;
+            margin-top: 1rem;
+        }
+    }
+    .login-img{
+        width: 100%;
+    }
+}

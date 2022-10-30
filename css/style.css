@@ -1,0 +1,26 @@
+.login {
+  margin: 9rem auto 0; }
+  .login .form {
+    background-color: #dedede59;
+    border-radius: 16px;
+    padding: 3rem 2rem; }
+    .login .form .bi-person-circle {
+      font-size: 7rem;
+      color: var(--bs-blue); }
+    .login .form .input {
+      position: relative; }
+      .login .form .input .bi {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translate(-5px, -50%); }
+      .login .form .input input {
+        padding-left: 28px; }
+    .login .form .submit {
+      background-color: var(--bs-blue);
+      color: #fff;
+      text-transform: capitalize;
+      padding: 8px 32px;
+      margin-top: 1rem; }
+  .login .login-img {
+    width: 100%; }
