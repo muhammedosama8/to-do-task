@@ -133,3 +133,28 @@ function deleteTask(id){
       });
 }
 
+/* -------- End Task ----------*/
+function endTask(id){
+    completed=!completed
+    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                completed: completed
+            }),
+            headers: {
+                Accept: "application/json",
+              'Content-type': 'application/json',
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+                if(completed){
+                    document.getElementById(data.id).style.textDecoration = 'line-through';
+                    document.getElementById(data.id).nextSibling.style.display = 'none'
+                } else{
+                    document.getElementById(data.id).style.textDecoration = 'none';
+                    document.getElementById(data.id).nextSibling.style.display = 'block'
+                }
+            });
+}
+
