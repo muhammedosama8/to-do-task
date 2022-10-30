@@ -121,4 +121,15 @@ function edit(id){
     isEdit = true;
 }
 
+/* -------- Delete Task ----------*/
+function deleteTask(id){
+    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
+        method: 'DELETE',
+      }).then(res=> {
+        if(res.status == 200){
+            tasks = tasks.filter(data=> data.id !== id)
+            document.getElementById(id).parentElement.remove();
+        }
+      });
+}
 
