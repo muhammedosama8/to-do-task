@@ -16,7 +16,9 @@
         <div class="container">
             <div class="navbar d-flex">
                 <h1 class="title">To Do List</h1>
-                <button class="btn btn-outline logout" onclick="logout()">Log Out</button>
+                <button class="btn btn-outline logout" onclick="logout()">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
             </div>
             
             <form class="form">
@@ -27,16 +29,10 @@
     </div>
     
 
-    <div id="loading" class="loading">
-        <div class="card">
-            <div class="description card-loading">
-                <p class="text">Loading..!</p>
-            </div>
-        </div>
-    </div>
+    <div id="loading" class="loading container"></div>
 
     <div class="container">
-        <div class="list" id="list">
+        <div class="list row" id="list">
         </div>
     </div>
 

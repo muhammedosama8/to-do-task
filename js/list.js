@@ -8,7 +8,11 @@ let tasks = [];
 let isEdit = false;
 let taskedit;
 let completed 
-
+for(let i =0; i<50; i++){
+  let div = document.createElement('div');
+  div.setAttribute('class', 'card description card-loading')
+  document.getElementById('loading').append(div)
+}
 // Defining async function
 async function getapi(url) {
   fetch(url).then(response => response.json()).then(data => {
@@ -18,7 +22,6 @@ async function getapi(url) {
     tasks = data
     setTaskDiv(tasks)
   }).catch(err => {
-    console.log(err);
     alert("Can't Load Data, Page will Refresh");
     document.location.reload()
   })
@@ -29,7 +32,7 @@ getapi(url);
 function setTaskDiv(data){
     let nodes = data.map(res => {
         completed = data.completed;
-        let number = document.createElement('p');
+        let number = document.createElement('span');
         let div = document.createElement('div');
         let p = document.createElement('p');
         let edit= document.createElement('button');
@@ -50,6 +53,7 @@ function setTaskDiv(data){
         delIcon.setAttribute('class', 'bi bi-trash')
         del.append(delIcon);
 
+        div.setAttribute('class', 'task col-sm-12 col-md-6 col-lg-6')
         div.appendChild(number)
         div.appendChild(p)
         div.appendChild(edit)
@@ -110,14 +114,14 @@ form.submit.addEventListener('click', (e)=> {
             console.log(err);
           });
     }
-    form.task.setAttribute('value',' ');
+    form.task.value =' '
 })
 
 /* -------- Edit Task ----------*/
 function edit(id){
-    form.task.setAttribute('value',' ');
+    form.task.value= ' ';
     taskedit = tasks.filter(res=> res.id == id);
-    form.task.setAttribute('value', taskedit[0].title);
+    form.task.value=taskedit[0].title;
     isEdit = true;
 }
 
